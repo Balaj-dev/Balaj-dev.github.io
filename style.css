@@ -6,12 +6,12 @@
 
  @font-face {
   font-family:my-font-one;
-  src: local("karmatic-arcade/ka1.ttf") format('woff2');
+  src: local("Font/karmatic-arcade/ka1.ttf") format('woff2');
 }
 
 @font-face {
   font-family:'my-font-2'; 
-  src: local("lower-pixel/LowresPixel-Regular.otf") format('woff2');
+  src: local("Font/lower-pixel/LowresPixel-Regular.otf") format('woff2');
 }
 
 html {
@@ -23,7 +23,7 @@ body {
   font-family:my-font-one;
   background-image: linear-gradient(to right bottom, black, blue);
   display: flex;
-  font-family: my;
+  font-family: my-font-one;
   flex-direction: column;
   align-items: center;
 }
