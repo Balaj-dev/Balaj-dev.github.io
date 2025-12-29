@@ -106,17 +106,127 @@ margin-top: 13%;
 margin-left:4%;
 }
 
-
-
-/* MOBILE */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   #nav-bar {
-    flex-direction: column;
+    position: relative;
     height: auto;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  #port-in-nav {
+    font-size: 1.5rem;
+    margin-top: 0;
+  }
+
+  #main-in-nav,
+  #about-me-in-nav,
+  #projects-in-nav {
+    font-size: 1rem;
+    margin-left: 0;
+  }
+
+  #main-in-nav {
+    margin-left: 0;
+  }
+
+  #nav-bar span {
+    font-size: 1.75rem;
   }
 
   #main-bar {
-    width: 100%;
-    min-height: auto;
-  }}
+    width: 95%;
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #my-photo {
+    width: 60%;
+    height: auto;
+    margin: 2rem 0 0 0;
+  }
+
+  #my-name {
+    position: static;
+    margin: 1.5rem 0 0 0;
+    text-align: center;
+    font-size: 1.25rem;
+  }
+
+  #main-para {
+    width: 90%;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  #nav-bar {
+    gap: 1.5rem;
+    height: 3.75rem;
+  }
+
+  #port-in-nav {
+    font-size: 2rem;
+    margin-top: 0.5rem;
+  }
+
+  #main-in-nav,
+  #about-me-in-nav,
+  #projects-in-nav {
+    font-size: 1.25rem;
+    margin-left: 0;
+  }
+
+  #main-in-nav {
+    margin-left: 5rem;
+  }
+
+  #main-bar {
+    width: 90%;
+    margin-top: 6rem;
+  }
+
+  #my-photo {
+    width: 35%;
+    height: auto;
+    margin-left: 2rem;
+  }
+
+  #my-name {
+    margin-left: 22rem;
+    margin-top: 3rem;
+    font-size: 1.5rem;
+  }
+
+  #main-para {
+    width: 55%;
+    margin-top: 18%;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1920px) {
+  #main-bar {
+    width: 55rem;
+  }
+
+  #my-photo {
+    width: 38%;
+    height: auto;
+    margin-left: 3rem;
+  }
+
+  #my-name {
+    margin-left: 32rem;
+    font-size: 1.75rem;
+  }
+
+  #main-para {
+    font-size: 1.05rem;
+    margin-top: 14%;
+  }
+}
