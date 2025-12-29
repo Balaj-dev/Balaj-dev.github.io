@@ -97,12 +97,13 @@ margin-left: 37rem;
 }
 
 #main-para{
-position:absolute;
-margin-left: -600px;
+height: max-content;
+width:40%;
+position:relative;
 color:white;
 font-family:monospace;
-margin-top: 2.50rem;
-margin-left: 25rem;
+margin-top: 13%;
+margin-left:7%;
 }
 
 
