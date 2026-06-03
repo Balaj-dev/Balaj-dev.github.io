@@ -1,36 +1,1231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balaj's Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balaj Mubeen</title>
+  <meta name="description" content="Balaj Mubeen — Cybersecurity & Systems Student based in Islamabad, Pakistan." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080808;
+      --bg2: #0f0f0f;
+      --bg3: #141414;
+      --surface: #1a1a1a;
+      --surface2: #222;
+      --border: rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.12);
+      --text: #f0f0f0;
+      --text2: #888;
+      --text3: #555;
+      --accent: #00e5ff;
+      --accent2: #ff3cac;
+      --accent3: #a78bfa;
+      --green: #00ffa3;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Manrope', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ── CUSTOM CURSOR ── */
+    .cursor {
+      width: 32px; height: 32px;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      will-change: transform;
+    }
+    .cursor svg {
+      width: 100%; height: 100%;
+      transition: transform 0.15s ease;
+    }
+    .cursor.hover svg { transform: scale(1.5); }
+    .cursor.hover .cursor-ring-el { stroke: var(--accent2); }
+    .cursor-ring-el {
+      stroke: rgba(0,229,255,0.55);
+      transition: stroke 0.2s;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.022;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 3rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, background 0.3s, backdrop-filter 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(8,8,8,0.85);
+      backdrop-filter: blur(20px);
+      border-color: var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text2);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: flex-end;
+      padding: 0 3rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      z-index: 2;
+    }
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      padding-bottom: 2rem;
+    }
+    #hero-canvas {
+      width: 100%;
+      max-width: 520px;
+      aspect-ratio: 1;
+      display: block;
+      background: transparent;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 100%);
+    }
+    .hero-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,229,255,0.06) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      pointer-events: none;
+    }
+    .hero-glow2 {
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,60,172,0.05) 0%, transparent 70%);
+      bottom: 100px; left: 20%;
+      pointer-events: none;
+    }
+    .hero-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.2s forwards;
+    }
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 10vw, 9rem);
+      font-weight: 800;
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.6rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.35s forwards;
+    }
+    .hero-name .line2 { color: var(--text2); }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text2);
+      font-weight: 300;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.5s forwards;
+      line-height: 1.8;
+    }
+    .hero-desc strong { color: var(--text); font-weight: 500; }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.65s forwards;
+    }
+    .btn-primary {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      color: var(--bg);
+      background: var(--accent);
+      padding: 0.85rem 2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,229,255,0.25);
+    }
+    .btn-ghost {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      color: var(--text2);
+      border: 1px solid var(--border2);
+      padding: 0.85rem 2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--text); border-color: var(--text3); }
+    .hero-socials {
+      position: absolute;
+      right: 3rem;
+      bottom: 5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      align-items: center;
+      opacity: 0;
+      animation: fadeIn 0.7s 0.9s forwards;
+    }
+    .hero-socials::before {
+      content: '';
+      width: 1px;
+      height: 60px;
+      background: var(--border2);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .hero-socials a {
+      color: var(--text3);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transition: color 0.2s;
+    }
+    .hero-socials a:hover { color: var(--accent); }
+    .hero-scroll {
+      position: absolute;
+      left: 3rem;
+      bottom: 5rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text3);
+      letter-spacing: 0.15em;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeIn 0.7s 0.9s forwards;
+    }
+    .hero-scroll::after {
+      content: '';
+      width: 40px; height: 1px;
+      background: var(--text3);
+      display: block;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 7rem 3rem; position: relative; }
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .section-label::before {
+      content: '';
+      width: 30px; height: 1px;
+      background: var(--accent);
+      display: block;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 3.5rem;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg); }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .about-photo {
+      aspect-ratio: 3/4;
+      max-height: 520px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .about-photo::after {
+      content: 'ADD PHOTO HERE';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text3);
+      letter-spacing: 0.15em;
+    }
+    .about-photo-corner {
+      position: absolute;
+      width: 20px; height: 20px;
+      border-color: var(--accent);
+      border-style: solid;
+      z-index: 2;
+    }
+    .about-photo-corner.tl { top: 12px; left: 12px; border-width: 1px 0 0 1px; }
+    .about-photo-corner.tr { top: 12px; right: 12px; border-width: 1px 1px 0 0; }
+    .about-photo-corner.bl { bottom: 12px; left: 12px; border-width: 0 0 1px 1px; }
+    .about-photo-corner.br { bottom: 12px; right: 12px; border-width: 0 1px 1px 0; }
+    .about-text { padding-top: 1rem; }
+    .about-bio {
+      font-size: 1.05rem;
+      color: var(--text2);
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      line-height: 1.9;
+    }
+    .about-bio strong { color: var(--text); font-weight: 500; }
+    .certs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-bottom: 2.5rem;
+    }
+    .cert-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1rem 1.2rem;
+      border-radius: 2px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .cert-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+    .cert-card .cert-icon {
+      font-size: 0.7rem;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+    .cert-card .cert-name {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .cert-card .cert-sub {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text3);
+      margin-top: 0.2rem;
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--bg2); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.8rem;
+      border-radius: 2px;
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .skill-group::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-color, var(--accent)), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .skill-group:hover { border-color: var(--border2); transform: translateY(-4px); }
+    .skill-group:hover::before { opacity: 1; }
+    .skill-group:nth-child(2) { --accent-color: var(--accent2); }
+    .skill-group:nth-child(3) { --accent-color: var(--accent3); }
+    .skill-group:nth-child(4) { --accent-color: var(--green); }
+    .skill-group:nth-child(5) { --accent-color: var(--accent2); }
+    .skill-group:nth-child(6) { --accent-color: var(--accent3); }
+    .skill-group-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--accent-color, var(--accent));
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+    .skill-group-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text2);
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .skill-group:hover .skill-tag { border-color: rgba(255,255,255,0.1); }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--bg); }
+    .projects-featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2.2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.25s, transform 0.25s, background 0.25s;
+      position: relative;
+      overflow: hidden;
+      cursor: none;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,229,255,0.03) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .project-card:hover { border-color: var(--border2); transform: translateY(-4px); }
+    .project-card:hover::before { opacity: 1; }
+    .project-card.featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: start;
+      padding: 2.8rem;
+    }
+    .project-card.featured::before {
+      background: linear-gradient(135deg, rgba(0,229,255,0.04) 0%, transparent 50%);
+    }
+    .project-num {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text3);
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+    .project-card.featured .project-title { font-size: 2rem; }
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--text2);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .stack-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: rgba(0,229,255,0.07);
+      border: 1px solid rgba(0,229,255,0.15);
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+    }
+    .project-arrow {
+      font-size: 1.4rem;
+      color: var(--text3);
+      transition: color 0.2s, transform 0.2s;
+      align-self: flex-start;
+      margin-top: 0.3rem;
+    }
+    .project-card:hover .project-arrow { color: var(--accent); transform: translate(4px, -4px); }
+    .project-badge {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--green);
+      background: rgba(0,255,163,0.07);
+      border: 1px solid rgba(0,255,163,0.15);
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      display: inline-block;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--bg2); }
+    .exp-list { display: flex; flex-direction: column; gap: 0; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .exp-item:first-child { border-top: 1px solid var(--border); }
+    .exp-year {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text3);
+      letter-spacing: 0.1em;
+      padding-top: 0.2rem;
+    }
+    .exp-content {}
+    .exp-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .exp-org {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.7rem;
+    }
+    .exp-desc {
+      font-size: 0.9rem;
+      color: var(--text2);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    .exp-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--accent);
+      margin-top: 0.6rem;
+    }
+    .exp-status::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg); }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .contact-big {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    .contact-big span { color: var(--accent); }
+    .contact-sub {
+      font-size: 0.95rem;
+      color: var(--text2);
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+    .contact-email {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border2);
+      padding-bottom: 0.3rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contact-email:hover { color: var(--accent); border-color: var(--accent); }
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      padding-top: 1rem;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 1.6rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      margin-bottom: 0.6rem;
+      border-radius: 2px;
+    }
+    .contact-link:hover {
+      border-color: var(--border2);
+      background: var(--surface2);
+      transform: translateX(4px);
+    }
+    .contact-link-left { display: flex; flex-direction: column; gap: 0.2rem; }
+    .contact-link-platform {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text3);
+      letter-spacing: 0.12em;
+    }
+    .contact-link-handle {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .contact-link-arrow {
+      color: var(--text3);
+      font-size: 1.1rem;
+      transition: color 0.2s, transform 0.2s;
+    }
+    .contact-link:hover .contact-link-arrow { color: var(--accent); transform: translateX(4px); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 3rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-text {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text3);
+      letter-spacing: 0.08em;
+    }
+    .footer-text span { color: var(--text2); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── DIVIDER LINE ── */
+    .h-line {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin: 0 3rem;
+      width: calc(100% - 6rem);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 0 1.5rem 4rem; }
+      .hero-visual { display: none; }
+      section { padding: 5rem 1.5rem; }
+      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-photo { max-height: 360px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .projects-featured { grid-template-columns: 1fr; }
+      .project-card.featured { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-socials { display: none; }
+      .hero-scroll { display: none; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+      body { cursor: auto; }
+      .cursor { display: none; }
+    }
+  </style>
 </head>
 <body>
 
-<header><h1>My Portfolio</h1></header>
-<div class="nav-bar" id="nav-bar"> 
-  <h2 id="port-in-nav">My Portfolio</h2>
-  <a href="#main-para" id="main-in-nav">Main</a>
-  <a href="#main-para" id="about-me-in-nav">About me</a>
-  <a href="https://github.com/Balaj-dev?tab=repositories" id="projects-in-nav">Projects</a>
-  
-</div>
+  <div class="cursor" id="cursor">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle class="cursor-ring-el" cx="16" cy="16" r="14" stroke-width="1"/>
+      <circle cx="16" cy="16" r="3.5" fill="#00e5ff"/>
+    </svg>
+  </div>
 
-<div id="main-bar">
-<img src="me.jpeg" id="my-photo" alt="My picture btw..."> 
-<h1 id="my-name">Balaj Mubeen</h1>
-  <p id="main-para">
-  Computer Science student with a strong foundation in Linux systems and networking.
-I focus on problem-solving, system-level thinking, and understanding how computers work under the hood.
-Experienced in designing and reasoning about secure, reliable software systems.
-Comfortable working in Linux environments and automating tasks with code when needed.
-Certified in Google Cybersecurity and IBM System Administration, with a solid grasp of system operations and reliability.
-Curious by nature, I enjoy exploring complex technical problems and learning beyond formal curricula.
-Interested in cybersecurity, secure communication, and low-level system design.
-Driven by continuous learning and building things with correctness and intent.
-</p>
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">BM<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">about</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#experience">experience</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </nav>
 
-</div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+
+    <div class="hero-content">
+      <div class="hero-tag">// Islamabad, Pakistan · Available for opportunities</div>
+      <h1 class="hero-name">
+        Balaj<br>
+        <span class="line2">Mubeen.</span>
+      </h1>
+      <p class="hero-desc">
+        <strong>Cybersecurity &amp; Systems Student</strong> — obsessed with how things work beneath the surface.
+        Building secure tools, understanding networks, and tinkering with AI at the OS level.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <canvas id="hero-canvas"></canvas>
+    </div>
+
+    <div class="hero-socials">
+      <a href="https://github.com/Balaj-dev" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.instagram.com/balaj_mubeen/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/in/malik-balaj-553242216/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+
+    <div class="hero-scroll">scroll to explore</div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">01 — about me</div>
+    <div class="about-inner">
+      <div class="about-photo reveal">
+        <div class="about-photo-corner tl"></div>
+        <div class="about-photo-corner tr"></div>
+        <div class="about-photo-corner bl"></div>
+        <div class="about-photo-corner br"></div>
+      </div>
+      <div class="about-text">
+        <h2 class="section-title">Student.<br>Builder.<br>Security-minded.</h2>
+        <p class="about-bio reveal">
+          I'm Balaj — a <strong>DAE in ICT student at CTTI Pakistan</strong> with a focus on cybersecurity, networking, and low-level systems.
+          I care about understanding how things <em>actually</em> work — not just the surface level.
+        </p>
+        <p class="about-bio reveal reveal-delay-1">
+          From building Python tools to running home labs, I learn by doing. Currently pursuing a <strong>Google Cybersecurity Professional Certificate</strong>
+          and <strong>Cisco Network Fundamentals</strong> while working on personal projects that combine AI with system-level automation.
+        </p>
+        <div class="certs-grid reveal reveal-delay-2">
+          <div class="cert-card">
+            <div class="cert-icon">// CERT</div>
+            <div class="cert-name">Google Cybersecurity Professional</div>
+            <div class="cert-sub">Completed ✓</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">// CERT</div>
+            <div class="cert-name">Cisco Network Fundamentals</div>
+            <div class="cert-sub">Awaiting Results</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">// EDU</div>
+            <div class="cert-name">DAE in ICT</div>
+            <div class="cert-sub">CTTI Pakistan · In Progress</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">// LAB</div>
+            <div class="cert-name">Home Lab</div>
+            <div class="cert-sub">Linux · Networking · Security</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">02 — technical skills</div>
+    <h2 class="section-title reveal">What I work with.</h2>
+    <div class="skills-grid">
+      <div class="skill-group reveal">
+        <div class="skill-group-label">// CORE</div>
+        <div class="skill-group-title">Cybersecurity</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Network Security</span>
+          <span class="skill-tag">Threat Analysis</span>
+          <span class="skill-tag">Vulnerability Assessment</span>
+          <span class="skill-tag">SIEM</span>
+          <span class="skill-tag">Incident Response</span>
+        </div>
+      </div>
+      <div class="skill-group reveal reveal-delay-1">
+        <div class="skill-group-label">// NETWORKING</div>
+        <div class="skill-group-title">Networks</div>
+        <div class="skill-tags">
+          <span class="skill-tag">TCP/IP</span>
+          <span class="skill-tag">Cisco IOS</span>
+          <span class="skill-tag">Subnetting</span>
+          <span class="skill-tag">Routing & Switching</span>
+          <span class="skill-tag">Wireshark</span>
+          <span class="skill-tag">DNS / DHCP</span>
+        </div>
+      </div>
+      <div class="skill-group reveal reveal-delay-2">
+        <div class="skill-group-label">// SYSTEMS</div>
+        <div class="skill-group-title">Operating Systems</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">macOS</span>
+          <span class="skill-tag">Bash</span>
+          <span class="skill-tag">Shell Scripting</span>
+          <span class="skill-tag">Virtual Servers</span>
+        </div>
+      </div>
+      <div class="skill-group reveal reveal-delay-1">
+        <div class="skill-group-label">// LANGUAGES</div>
+        <div class="skill-group-title">Programming</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Bash</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">HTML / CSS</span>
+        </div>
+      </div>
+      <div class="skill-group reveal reveal-delay-2">
+        <div class="skill-group-label">// AI / TOOLS</div>
+        <div class="skill-group-title">Tools & Platforms</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Ollama</span>
+          <span class="skill-tag">Git / GitHub</span>
+          <span class="skill-tag">VS Code</span>
+          <span class="skill-tag">Google Cloud</span>
+          <span class="skill-tag">Flask</span>
+        </div>
+      </div>
+      <div class="skill-group reveal reveal-delay-3">
+        <div class="skill-group-label">// HARDWARE</div>
+        <div class="skill-group-title">Hardware & RF</div>
+        <div class="skill-tags">
+          <span class="skill-tag">ESP32</span>
+          <span class="skill-tag">2.4GHz Radio</span>
+          <span class="skill-tag">Bluetooth</span>
+          <span class="skill-tag">Home Lab Server</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">03 — projects</div>
+    <h2 class="section-title reveal">Things I've built.</h2>
+    <div class="projects-featured">
+
+      <!-- FEATURED: Friday AI -->
+      <a href="https://github.com/Balaj-dev" target="_blank" rel="noopener" class="project-card featured reveal">
+        <div>
+          <div class="project-num">// 001 · FEATURED</div>
+          <div class="project-badge">● Active Development</div>
+          <div class="project-title">Friday AI</div>
+          <div class="project-desc">
+            An OS-level AI assistant built with Python and Ollama. Understands natural language and executes real system commands on macOS — from file management to app automation. Named after the AI in Iron Man.
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">Ollama</span>
+            <span class="stack-tag">macOS</span>
+            <span class="stack-tag">LLM</span>
+            <span class="stack-tag">System Automation</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <!-- KeyLogger -->
+      <a href="https://github.com/Balaj-dev/KeyLogger" target="_blank" rel="noopener" class="project-card reveal reveal-delay-1">
+        <div class="project-num">// 002</div>
+        <div class="project-title">KeyLogger</div>
+        <div class="project-desc">
+          An educational cybersecurity project — a background key logger that records all keystrokes. Built to understand how surveillance tools operate at a system level.
+        </div>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">System Monitoring</span>
+          <span class="stack-tag">Cybersecurity</span>
+        </div>
+        <div style="margin-top: 1.2rem;" class="project-arrow">↗</div>
+      </a>
+
+      <!-- Password Analyser -->
+      <a href="https://github.com/Balaj-dev/Password_analyser" target="_blank" rel="noopener" class="project-card reveal reveal-delay-2">
+        <div class="project-num">// 003</div>
+        <div class="project-title">Password Analyser</div>
+        <div class="project-desc">
+          A local Flask web tool that checks password strength, complexity, and common-password usage. Helps users make smarter security decisions without sending data anywhere.
+        </div>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Flask</span>
+          <span class="stack-tag">Security</span>
+          <span class="stack-tag">Web</span>
+        </div>
+        <div style="margin-top: 1.2rem;" class="project-arrow">↗</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE / TIMELINE -->
+  <section id="experience">
+    <div class="section-label">04 — experience & education</div>
+    <h2 class="section-title reveal">The journey so far.</h2>
+    <div class="exp-list">
+
+      <div class="exp-item reveal">
+        <div class="exp-year">2024 — PRESENT</div>
+        <div class="exp-content">
+          <div class="exp-title">DAE in Information & Communication Technology</div>
+          <div class="exp-org">CTTI Pakistan · Islamabad</div>
+          <div class="exp-desc">Pursuing a 3-year diploma with focus on cybersecurity, networking, and systems. Hands-on coursework in TCP/IP, Linux administration, and network infrastructure.</div>
+          <div class="exp-status">In Progress</div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal reveal-delay-1">
+        <div class="exp-year">2024</div>
+        <div class="exp-content">
+          <div class="exp-title">Google Cybersecurity Professional Certificate</div>
+          <div class="exp-org">Google · Coursera</div>
+          <div class="exp-desc">Completed 8-course program covering threat analysis, SIEM tools, incident response, network security, and Linux. Industry-recognized credential.</div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal reveal-delay-2">
+        <div class="exp-year">2024 — PRESENT</div>
+        <div class="exp-content">
+          <div class="exp-title">Cisco Network Fundamentals (CCNA Intro)</div>
+          <div class="exp-org">Cisco Networking Academy</div>
+          <div class="exp-desc">Completed coursework on routing, switching, IP addressing, subnetting, and Cisco IOS. Results pending.</div>
+          <div class="exp-status">Awaiting Results</div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal reveal-delay-3">
+        <div class="exp-year">ONGOING</div>
+        <div class="exp-content">
+          <div class="exp-title">Home Lab — Linux Virtual Server</div>
+          <div class="exp-org">Self-Directed · Personal Lab</div>
+          <div class="exp-desc">Running a Linux-based home server on repurposed hardware for hands-on practice. Use cases include network monitoring, security testing, and server administration.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">05 — contact</div>
+    <div class="contact-inner">
+      <div>
+        <h2 class="contact-big reveal">Let's<br><span>Connect.</span></h2>
+        <p class="contact-sub reveal reveal-delay-1">
+          Open to part-time cybersecurity work, collaborations, or just a good conversation about systems and security. Drop a message.
+        </p>
+        <a href="mailto:mbalajmubeen@gmail.com" class="contact-email reveal reveal-delay-2">mbalajmubeen@gmail.com</a>
+      </div>
+      <div class="contact-links reveal reveal-delay-1">
+        <a href="https://github.com/Balaj-dev" target="_blank" rel="noopener" class="contact-link">
+          <div class="contact-link-left">
+            <span class="contact-link-platform">// GITHUB</span>
+            <span class="contact-link-handle">Balaj-dev</span>
+          </div>
+          <span class="contact-link-arrow">↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/malik-balaj-553242216/" target="_blank" rel="noopener" class="contact-link">
+          <div class="contact-link-left">
+            <span class="contact-link-platform">// LINKEDIN</span>
+            <span class="contact-link-handle">Malik Balaj</span>
+          </div>
+          <span class="contact-link-arrow">↗</span>
+        </a>
+        <a href="https://www.instagram.com/balaj_mubeen/" target="_blank" rel="noopener" class="contact-link">
+          <div class="contact-link-left">
+            <span class="contact-link-platform">// INSTAGRAM</span>
+            <span class="contact-link-handle">@balaj_mubeen</span>
+          </div>
+          <span class="contact-link-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-text">© 2025 <span>Balaj Mubeen</span> — All rights reserved.</div>
+    <div class="footer-text">Built with <span>HTML · CSS · JS</span> — Hosted on GitHub Pages</div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script>
+    // ── CURSOR ──
+    const cursorEl = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursorEl.style.transform = `translate(${e.clientX - 16}px, ${e.clientY - 16}px)`;
+    });
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorEl.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursorEl.classList.remove('hover'));
+    });
+
+    // ── NAV SCROLL ──
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // ── SCROLL REVEAL ──
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // ── ALEXANDER GLB ──
+    const canvas = document.getElementById('hero-canvas');
+    if (canvas) {
+      const SIZE = Math.min(canvas.parentElement.clientWidth * 0.9, 520);
+      canvas.width = SIZE;
+      canvas.height = SIZE;
+
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+      renderer.setSize(SIZE, SIZE);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setClearColor(0x000000, 0);
+      renderer.physicallyCorrectLights = true;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.4;
+      renderer.outputEncoding = THREE.sRGBEncoding;
+      renderer.shadowMap.enabled = true;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(38, 1, 0.01, 100);
+      camera.position.set(0, 0.5, 3.8);
+
+      // ── Lights: cyberpunk palette ──
+      scene.add(new THREE.AmbientLight(0x0a0a18, 6));
+
+      const cyanKey = new THREE.DirectionalLight(0x00e5ff, 3.5);
+      cyanKey.position.set(2.5, 3, 2);
+      scene.add(cyanKey);
+
+      const pinkFill = new THREE.PointLight(0xff3cac, 4, 12);
+      pinkFill.position.set(-2.5, 0, 1.5);
+      scene.add(pinkFill);
+
+      const purpleRim = new THREE.DirectionalLight(0xa78bfa, 2);
+      purpleRim.position.set(0, -2, -3);
+      scene.add(purpleRim);
+
+      const cyanRim = new THREE.PointLight(0x00e5ff, 2, 8);
+      cyanRim.position.set(-1, 2, -2);
+      scene.add(cyanRim);
+
+      // ── Load GLB ──
+      let model = null;
+      const loader = new THREE.GLTFLoader();
+      loader.load('./alexander.glb', gltf => {
+        model = gltf.scene;
+
+        // Centre and scale the model
+        const box = new THREE.Box3().setFromObject(model);
+        const centre = box.getCenter(new THREE.Vector3());
+        const size = box.getSize(new THREE.Vector3()).length();
+        model.position.sub(centre);
+        model.scale.setScalar(2.8 / size);
+
+        // Lift slightly so bust sits centred
+        model.position.y -= 0.15;
+
+        scene.add(model);
+      });
+
+      // ── Mouse parallax ──
+      let tx = 0, ty = 0, cx = 0, cy = 0;
+      document.addEventListener('mousemove', e => {
+        tx = (e.clientX / window.innerWidth  - 0.5) *  0.5;
+        ty = (e.clientY / window.innerHeight - 0.5) * -0.3;
+      });
+
+      // ── Animate ──
+      const clock = new THREE.Clock();
+      (function animate() {
+        requestAnimationFrame(animate);
+        const t = clock.getElapsedTime();
+
+        if (model) {
+          // Slow auto-rotate
+          model.rotation.y += 0.004;
+        }
+
+        // Smooth mouse tilt on whole scene
+        cx += (tx - cx) * 0.04;
+        cy += (ty - cy) * 0.04;
+        scene.rotation.y = cx;
+        scene.rotation.x = cy;
+
+        // Breathing lights
+        pinkFill.intensity  = 4   + Math.sin(t * 0.9) * 0.8;
+        cyanKey.intensity   = 3.5 + Math.cos(t * 1.1) * 0.6;
+
+        renderer.render(scene, camera);
+      })();
+    }
+  </script>
+
 </body>
 </html>
