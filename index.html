@@ -1203,29 +1203,31 @@
 
       // ── Animate ──
       const clock = new THREE.Clock();
-      (function animate() {
-        requestAnimationFrame(animate);
-        const t = clock.getElapsedTime();
 
-        if (model) {
-          // Slow auto-rotate
-          model.rotation.y += 0.004;
-        }
+(function animate() {
+  requestAnimationFrame(animate);
 
-        // Smooth mouse tilt on whole scene
-        cx += (tx - cx) * 0.04;
-        cy += (ty - cy) * 0.04;
-        scene.rotation.y = cx;
-        scene.rotation.x = cy;
+  const t = clock.getElapsedTime();
 
-        // Breathing lights
-        pinkFill.intensity  = 4   + Math.sin(t * 0.9) * 0.8;
-        cyanKey.intensity   = 3.5 + Math.cos(t * 1.1) * 0.6;
+  // Smooth mouse tilt
+  cx += (tx - cx) * 0.04;
+  cy += (ty - cy) * 0.04;
 
-        renderer.render(scene, camera);
-      })();
+  // Move scene with cursor
+  scene.rotation.y = cx;
+  scene.rotation.x = cy;
+
+  // Breathing lights
+  pinkFill.intensity = 4 + Math.sin(t * 0.9) * 0.8;
+  cyanKey.intensity = 3.5 + Math.cos(t * 1.1) * 0.6;
+
+  renderer.render(scene, camera);
+})();
     }
   </script>
 
 </body>
 </html>
+
+
+
