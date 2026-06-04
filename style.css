@@ -135,16 +135,14 @@ nav.scrolled {
 .bust-wrap {
   position: relative;
   width: 100%;
-  /* Height spans from where Instagram social link sits (bottom ~5rem)
-     up to where "Mubeen" second line ends — roughly 65vh */
-  height: 65vh;
-  max-height: 680px;
+  height: 100vh;
+  max-height: 730px;
   min-height: 420px;
   transform-style: preserve-3d;
   will-change: transform;
   cursor: none;
   display: flex;
-  align-items: center;
+  align-items:end;
   justify-content: center;
 }
 .bust-wrap img {
@@ -152,8 +150,8 @@ nav.scrolled {
   height: 100%;
   max-width: 100%;
   display: block;
-  object-fit: contain;
-  object-position: center center;
+  object-fit:cover;
+  object-position:bottom center;
   filter: drop-shadow(0 40px 80px rgba(0,0,0,0.95))
           drop-shadow(0 0 50px rgba(0,229,255,0.08))
           drop-shadow(0 0 100px rgba(255,60,172,0.05));
