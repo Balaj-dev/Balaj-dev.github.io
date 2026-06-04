@@ -125,33 +125,36 @@ nav.scrolled {
 }
 .hero-visual {
   display: flex;
-  align-items: center;
+  align-items: flex-end;        /* anchor to bottom — aligns with Instagram link */
   justify-content: center;
   position: relative;
   z-index: 2;
   height: 100vh;
-  overflow: visible;
+  overflow: hidden;             /* no bleed outside hero */
+  padding-bottom: 4.5rem;       /* same bottom spacing as hero-socials (bottom: 5rem) */
 }
 .bust-wrap {
   position: relative;
   width: 100%;
-  height: 100vh;
-  max-height: 730px;
-  min-height: 420px;
+  /* Height = from Instagram link bottom up to where "Mubeen" sits.
+     hero-socials is at bottom: 5rem. Hero name is clamp(4rem,10vw,9rem)*2 lines ~ 15-18vh from top.
+     So bust spans roughly 60% of viewport height, clamped responsively */
+  height: clamp(340px, 62vh, 680px);
   transform-style: preserve-3d;
   will-change: transform;
   cursor: none;
   display: flex;
-  align-items:end;
+  align-items: flex-end;
   justify-content: center;
+  overflow: visible;
 }
 .bust-wrap img {
   width: auto;
   height: 100%;
   max-width: 100%;
   display: block;
-  object-fit:cover;
-  object-position:bottom center;
+  object-fit: contain;
+  object-position: bottom center;
   filter: drop-shadow(0 40px 80px rgba(0,0,0,0.95))
           drop-shadow(0 0 50px rgba(0,229,255,0.08))
           drop-shadow(0 0 100px rgba(255,60,172,0.05));
