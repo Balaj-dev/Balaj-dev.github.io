@@ -125,13 +125,13 @@ nav.scrolled {
 }
 .hero-visual {
   display: flex;
-  align-items: flex-end;        /* anchor to bottom — aligns with Instagram link */
+  align-items: flex-end;
   justify-content: center;
   position: relative;
   z-index: 2;
   height: 100vh;
-  overflow: hidden;             /* no bleed outside hero */
-  padding-bottom: 4.5rem;       /* same bottom spacing as hero-socials (bottom: 5rem) */
+  overflow: hidden;
+  padding-bottom: 4.5rem;
 }
 .bust-wrap {
   position: relative;
@@ -378,6 +378,8 @@ section { padding: 7rem 3rem; position: relative; }
   line-height: 1.9;
 }
 .about-bio strong { color: var(--text); font-weight: 500; }
+
+/* ── CERTS GRID ── */
 .certs-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -389,28 +391,130 @@ section { padding: 7rem 3rem; position: relative; }
   border: 1px solid var(--border);
   padding: 1rem 1.2rem;
   border-radius: 2px;
-  transition: border-color 0.2s, transform 0.2s;
+  transition: border-color 0.25s, transform 0.25s;
+  cursor: default;
+  overflow: hidden;
 }
-.cert-card:hover { border-color: var(--border2); transform: translateY(-2px); }
-.cert-card .cert-icon {
+.cert-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-2px);
+}
+.cert-icon {
   font-size: 0.7rem;
   color: var(--accent);
   font-family: var(--font-mono);
   letter-spacing: 0.1em;
   margin-bottom: 0.4rem;
 }
-.cert-card .cert-name {
+.cert-name {
   font-family: var(--font-display);
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--text);
   line-height: 1.3;
+  margin-bottom: 0.2rem;
 }
-.cert-card .cert-sub {
+.cert-sub {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   color: var(--text3);
-  margin-top: 0.2rem;
+}
+.cert-detail-body {
+  font-size: 0.75rem;
+  color: var(--text2);
+  line-height: 1.6;
+  font-weight: 300;
+  margin-top: 0.6rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+}
+.cert-card:hover .cert-detail-body {
+  max-height: 80px;
+  opacity: 1;
+}
+/* Ensure non-hovered cards stay collapsed when grid is hovered */
+.certs-grid:hover .cert-card:not(:hover) .cert-detail-body {
+  max-height: 0;
+  opacity: 0;
+}
+.cert-link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  margin-top: 0.5rem;
+  border-bottom: 1px solid rgba(0,229,255,0.25);
+  padding-bottom: 0.1rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.3s ease 0.05s;
+  cursor: pointer;
+}
+.cert-card:hover .cert-link { max-height: 30px; opacity: 1; }
+.certs-grid:hover .cert-card:not(:hover) .cert-link {
+  max-height: 0;
+  opacity: 0;
+}
+.cert-link:hover { border-color: var(--accent); }
+.cert-link.no-link { color: var(--text3); border-color: transparent; cursor: default; }
+
+/* ── CERT POPUP ── */
+.cert-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  backdrop-filter: blur(12px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  cursor: auto;          /* restore normal cursor inside popup */
+}
+.cert-popup.open { opacity: 1; pointer-events: all; }
+.cert-popup * { cursor: auto; }  /* every child gets normal cursor */
+.cert-popup-inner {
+  position: relative;
+  max-width: 90vw;
+  max-height: 88vh;
+  border: 1px solid var(--border2);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 80px rgba(0,229,255,0.1);
+}
+.cert-popup-inner img {
+  display: block;
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+}
+.cert-popup-close {
+  position: absolute;
+  top: 0.8rem; right: 0.8rem;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border2);
+  background: rgba(8,8,8,0.92);
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  z-index: 2;
+}
+.cert-popup-close:hover {
+  border-color: var(--accent2);
+  color: var(--accent2);
+  background: rgba(255,60,172,0.1);
 }
 
 /* ── SKILLS ── */

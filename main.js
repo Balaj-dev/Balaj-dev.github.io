@@ -67,3 +67,26 @@ if (bust) {
     `;
   })();
 }
+
+// ── CERT POPUP ──
+const popup     = document.getElementById('certPopup');
+const popupImg  = document.getElementById('certPopupImg');
+const popupClose = document.getElementById('certPopupClose');
+
+const certImgMap = {
+  google: './cert_google.png',
+  ibm:    './cert_ibm.png',
+};
+
+document.querySelectorAll('.cert-link[data-popup]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.stopPropagation();
+    const key = link.getAttribute('data-popup');
+    popupImg.src = certImgMap[key];
+    popup.classList.add('open');
+  });
+});
+
+popupClose.addEventListener('click', () => popup.classList.remove('open'));
+popup.addEventListener('click', e => { if (e.target === popup) popup.classList.remove('open'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') popup.classList.remove('open'); });

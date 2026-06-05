@@ -46,7 +46,7 @@
       </h1>
       <p class="hero-desc">
         <strong>Cybersecurity &amp; Systems Student</strong> — obsessed with how things work beneath the surface.
-        Building secure tools, understanding networks, and tinkering with AI at the OS level.
+        Building secure tools, mapping networks, and pushing AI down to the OS level.
       </p>
       <div class="hero-ctas">
         <a href="#projects" class="btn-primary">View Projects</a>
@@ -83,34 +83,57 @@
       <div class="about-text">
         <h2 class="section-title">Student.<br>Builder.<br>Security-minded.</h2>
         <p class="about-bio reveal">
-          I'm Balaj — a <strong>DAE in ICT student at CTTI Pakistan</strong> with a focus on cybersecurity,
-          networking, and low-level systems. I care about understanding how things <em>actually</em> work — not just the surface level.
+          I'm Balaj — a <strong>DAE in ICT student at CTTI Pakistan</strong> with a sharp focus on cybersecurity,
+          networking, and low-level systems. I care about understanding how things <em>actually</em> work —
+          not just the surface level, but the mechanics underneath.
         </p>
         <p class="about-bio reveal reveal-delay-1">
-          From building Python tools to running home labs, I learn by doing. Currently pursuing a
-          <strong>Google Cybersecurity Professional Certificate</strong> and <strong>Cisco Network Fundamentals</strong>
-          while working on personal projects that combine AI with system-level automation.
+          I learn by building. From writing Python automation tools to running a personal Linux home lab,
+          every project is a step deeper into the stack. I hold a <strong>Google Cybersecurity Professional Certificate</strong>
+          and an <strong>IBM Linux System Administration</strong> certification, and I'm currently working on
+          projects that merge AI with OS-level control.
         </p>
         <div class="certs-grid reveal reveal-delay-2">
+
           <div class="cert-card">
             <div class="cert-icon">// CERT</div>
             <div class="cert-name">Google Cybersecurity Professional</div>
-            <div class="cert-sub">Completed ✓</div>
+            <div class="cert-sub">Google · Completed ✓</div>
+            <div class="cert-detail-body">8-course program covering threat analysis, SIEM, incident response, network security, Python & Linux.</div>
+            <span class="cert-link" data-popup="google">View Certificate ↗</span>
           </div>
+
           <div class="cert-card">
             <div class="cert-icon">// CERT</div>
-            <div class="cert-name">Cisco Network Fundamentals</div>
-            <div class="cert-sub">Awaiting Results</div>
+            <div class="cert-name">Linux System Administration</div>
+            <div class="cert-sub">IBM · Completed ✓</div>
+            <div class="cert-detail-body">IBM Power Systems program covering Linux admin, shell scripting, file systems, user management & networking.</div>
+            <span class="cert-link" data-popup="ibm">View Certificate ↗</span>
           </div>
+
           <div class="cert-card">
-            <div class="cert-icon">// EDU</div>
-            <div class="cert-name">DAE in ICT</div>
-            <div class="cert-sub">CTTI Pakistan · In Progress</div>
+            <div class="cert-icon">// EXAM</div>
+            <div class="cert-name">Cisco Network Fundamentals</div>
+            <div class="cert-sub">120 / 150 · Lahore Technical Board</div>
+            <div class="cert-detail-body">Year 1 DAE curriculum. Annual Board Exam by Lahore Technical Board. Covers routing, switching & Cisco IOS.</div>
+            <span class="cert-link no-link">Board Exam · No digital cert</span>
           </div>
+
           <div class="cert-card">
             <div class="cert-icon">// LAB</div>
             <div class="cert-name">Home Lab</div>
             <div class="cert-sub">Linux · Networking · Security</div>
+            <div class="cert-detail-body">Self-built Linux server on repurposed hardware. Used for security testing, network monitoring & server admin.</div>
+            <span class="cert-link no-link">Self-Directed · Ongoing</span>
+          </div>
+
+        </div>
+
+        <!-- CERT POPUP -->
+        <div class="cert-popup" id="certPopup">
+          <div class="cert-popup-inner">
+            <button class="cert-popup-close" id="certPopupClose">✕</button>
+            <img src="" alt="Certificate" id="certPopupImg" />
           </div>
         </div>
       </div>
@@ -261,36 +284,44 @@
         <div class="exp-content">
           <div class="exp-title">DAE in Information &amp; Communication Technology</div>
           <div class="exp-org">CTTI Pakistan · Islamabad</div>
-          <div class="exp-desc">Pursuing a 3-year diploma with focus on cybersecurity, networking, and systems. Hands-on coursework in TCP/IP, Linux administration, and network infrastructure.</div>
+          <div class="exp-desc">Pursuing a 3-year government diploma specialising in cybersecurity, networking, and systems engineering. Coursework spans TCP/IP, Linux administration, network infrastructure design, and software fundamentals.</div>
           <div class="exp-status">In Progress</div>
         </div>
       </div>
 
       <div class="exp-item reveal reveal-delay-1">
-        <div class="exp-year">2024</div>
+        <div class="exp-year">Oct 2025</div>
         <div class="exp-content">
           <div class="exp-title">Google Cybersecurity Professional Certificate</div>
           <div class="exp-org">Google · Coursera</div>
-          <div class="exp-desc">Completed 8-course program covering threat analysis, SIEM tools, incident response, network security, and Linux. Industry-recognized credential.</div>
+          <div class="exp-desc">Completed an 8-course industry programme covering threat analysis, SIEM tools, incident response, network security, Python automation, and Linux fundamentals. One of Google's flagship career certificates, recognised globally by employers.</div>
         </div>
       </div>
 
       <div class="exp-item reveal reveal-delay-2">
-        <div class="exp-year">2024 — PRESENT</div>
+        <div class="exp-year">Oct 2025</div>
         <div class="exp-content">
-          <div class="exp-title">Cisco Network Fundamentals (CCNA Intro)</div>
-          <div class="exp-org">Cisco Networking Academy</div>
-          <div class="exp-desc">Completed coursework on routing, switching, IP addressing, subnetting, and Cisco IOS. Results pending.</div>
-          <div class="exp-status">Awaiting Results</div>
+          <div class="exp-title">Linux System Administration with IBM Power Systems</div>
+          <div class="exp-org">IBM · Coursera</div>
+          <div class="exp-desc">Completed IBM's professional course covering Linux system administration on Power Systems — including shell scripting, file system management, user and group administration, process control, and network configuration.</div>
         </div>
       </div>
 
       <div class="exp-item reveal reveal-delay-3">
+        <div class="exp-year">2024</div>
+        <div class="exp-content">
+          <div class="exp-title">Cisco Network Fundamentals</div>
+          <div class="exp-org">Lahore Technical Board · Annual Board Examination</div>
+          <div class="exp-desc">Covered as part of Year 1 of the DAE in ICT curriculum. Achieved a score of 120 out of 150 in the Annual Board Examination conducted by the Lahore Technical Board. Topics included routing, switching, IP addressing, subnetting, and Cisco IOS configuration.</div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal reveal-delay-4">
         <div class="exp-year">ONGOING</div>
         <div class="exp-content">
           <div class="exp-title">Home Lab — Linux Virtual Server</div>
           <div class="exp-org">Self-Directed · Personal Lab</div>
-          <div class="exp-desc">Running a Linux-based home server on repurposed hardware for hands-on practice. Use cases include network monitoring, security testing, and server administration.</div>
+          <div class="exp-desc">Running a Linux-based virtual server on repurposed hardware as a hands-on practice environment. Active use cases include network traffic monitoring, vulnerability scanning, firewall configuration, and server administration — real-world skills built outside the classroom.</div>
         </div>
       </div>
 
@@ -304,7 +335,7 @@
       <div>
         <h2 class="contact-big reveal">Let's<br><span>Connect.</span></h2>
         <p class="contact-sub reveal reveal-delay-1">
-          Open to part-time cybersecurity work, collaborations, or just a good conversation about systems and security. Drop a message.
+          Open to part-time cybersecurity work, freelance projects, or a good conversation about systems and security. Feel free to reach out.
         </p>
         <a href="mailto:mbalajmubeen@gmail.com" class="contact-email reveal reveal-delay-2">mbalajmubeen@gmail.com</a>
       </div>
