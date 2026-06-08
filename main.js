@@ -90,3 +90,13 @@ document.querySelectorAll('.cert-link[data-popup]').forEach(link => {
 popupClose.addEventListener('click', () => popup.classList.remove('open'));
 popup.addEventListener('click', e => { if (e.target === popup) popup.classList.remove('open'); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') popup.classList.remove('open'); });
+
+
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+}
