@@ -12,7 +12,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
+
+
 <body>
+<div id="certModal" class="modal">
+    <span class="close">&times;</span>
+    <img id="certImage" src="" alt="Certificate">
+</div>
 
 <header>
   <nav class="wrap">
@@ -94,10 +100,20 @@
       <h2 class="reveal"><span style="color: var(--accent);">/ </span>Credentials</h2>
     </div>
     <div class="certs reveal">
-      <span>Google Cybersecurity Professional Certificate</span>
-      <span>IBM Linux System Administration Certificate</span>
-      <span>Cisco Network Fundamentals — 120/150</span>
-    </div>
+  <span class="cert-item" data-cert="google">
+    Google Cybersecurity Professional Certificate ↗
+</span>
+
+<span class="cert-item" data-cert="ibm">
+    IBM Linux System Administration Certificate ↗
+</span>
+
+  <span>
+    Cisco Network Fundamentals — 120/150
+  </span>
+</div>
+
+<p class="cert-note mono">// Click a credential to preview the certificate.</p>
   </section>
 
   <section id="work">

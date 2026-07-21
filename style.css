@@ -275,9 +275,6 @@ section{
   border-radius:10px;
   padding:14px;
 }
-.ascii-photo.hover{
-  border:10px 0 0 0;
-}
 
 .ascii-photo{
   display:block;
@@ -508,6 +505,58 @@ footer .wrap{
   .stack{padding-left:18px;}
 }
 
+.cert-item{
+    cursor:pointer;
+    transition:color .2s ease;
+}
+
+.cert-item:hover{
+    color:var(--accent);
+}
+
+.cert-item .hint{
+    opacity:.55;
+    transition:opacity .2s ease;
+}
+
+.cert-item:hover .hint{
+    opacity:1;
+}
+
+.cert-note{
+    margin-top:14px;
+    color:var(--ink-faint);
+    font-size:11px;
+    letter-spacing:.03em;
+}
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.82);
+    backdrop-filter:blur(5px);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+}
+
+.modal img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:8px;
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.close{
+    position:absolute;
+    top:24px;
+    right:36px;
+    color:white;
+    font-size:42px;
+    cursor:pointer;
+    user-select:none;
+}
+
 /* Small phones */
 @media (max-width:420px){
   .wrap{padding:0 16px;}
@@ -527,3 +576,4 @@ footer .wrap{
   .hero{padding:40px 0 48px;}
   section{padding:44px 0;}
 }
+
