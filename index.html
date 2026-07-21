@@ -1,371 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Balaj Mubeen</title>
-  <meta name="description" content="Balaj Mubeen — Cybersecurity &amp; Systems Student based in Islamabad, Pakistan." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./style.css" />
-  <script src="./main.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Balaj Mubeen — Backend / Systems / Infrastructure</title>
+<meta name="description" content="Balaj Mubeen — DAE-ICT student building backend, systems, and infrastructure foundations from networking and cybersecurity fundamentals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="cursor" id="cursor">
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle class="cursor-ring-el" cx="16" cy="16" r="14" stroke-width="1"/>
-      <circle cx="16" cy="16" r="3.5" fill="#00e5ff"/>
-    </svg>
-  </div>
-
-  <!-- NAV -->
-  <nav id="nav">
-    <a href="#" class="nav-logo">BM<span>.</span></a>
-    <div class="menu-toggle" id="menuToggle">☰</div>
-    <ul class="nav-links">
-      <li><a href="#about">about</a></li>
-      <li><a href="#skills">skills</a></li>
-      <li><a href="#projects">projects</a></li>
-      <li><a href="#experience">experience</a></li>
-      <li><a href="#contact">contact</a></li>
-    </ul>
+<header>
+  <nav class="wrap">
+    <div class="brand"><span class="dot"></span>balaj.dev</div>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
   </nav>
+</header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-grid"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-glow2"></div>
+<main class="wrap">
 
-    <div class="hero-content">
-      <div class="hero-tag">// Islamabad, Pakistan · Available for opportunities</div>
-      <h1 class="hero-name">
-        Balaj<br>
-        <span class="line2">Mubeen.</span>
-      </h1>
-      <p class="hero-desc">
-        <strong>Cybersecurity &amp; Systems Student</strong> — obsessed with how things work beneath the surface.
-        Building secure tools, mapping networks, and pushing AI down to the OS level.
-      </p>
-      <div class="hero-ctas">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="#contact" class="btn-ghost">Get in Touch</a>
+  <section class="hero" style="border-top:none;padding-top:88px;">
+    <div>
+      <div class="eyebrow">BALAJ MUBEEN — PYTHON / BACKEND / CYBERSECURITY</div>
+      <h1>Curious about how software works <span class="accent">beneath</span> the surface.</h1>
+      <p>Building backend systems, one layer at a time.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#work">View work</a>
+        <a class="btn btn-ghost" href="mailto:mbalajmubeen@gmail.com">Say hi 👋</a>
       </div>
     </div>
 
-    <div class="hero-socials">
-      <a href="https://github.com/Balaj-dev" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.instagram.com/balaj_mubeen/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.linkedin.com/in/malik-balaj-553242216/" target="_blank" rel="noopener">LinkedIn</a>
+    <div class="stack">
+      <span class="label-top">// self-directed roadmap</span>
+      <div class="node-line"></div>
+      <div class="node done"><span class="pt"></span><span>Linux</span></div>
+      <div class="node done"><span class="pt"></span><span>Networking</span></div>
+      <div class="node done"><span class="pt"></span><span>Python</span></div>
+      <div class="node done"><span class="pt"></span><span>JavaScript</span></div>
+      <div class="node now"><span class="pt"></span><span>React</span></div>
+      <div class="node todo"><span class="pt"></span><span>Kubernetes</span></div>
+      <div class="node todo"><span class="pt"></span><span>Rust</span></div>
+      <div class="node todo"><span class="pt"></span><span>Cloud</span></div>
+      <div class="node todo"><span class="pt"></span><span>LoRA / QLoRA Fine-Tuning</span></div>
+      <div class="node todo"><span class="pt"></span><span>RAG &amp; Personalized AI Systems</span></div>
     </div>
-
-    <div class="hero-scroll">scroll to explore</div>
   </section>
 
-  <!-- ABOUT -->
+  <section id="whoami">
+    <div class="sec-head">
+      <div class="idx mono">01</div>
+      <h2 class="reveal"><span style="color: var(--accent);">/</span>whoami</h2>
+    </div>
+    <div class="whoami-grid">
+      <div class="ascii-frame reveal">
+        <img class="ascii-photo" src="image.png" alt="ASCII-art rendered portrait of Balaj Mubeen">
+      </div>
+      <div class="whoami-info reveal">
+        <pre class="terminal-block">$ whoami
+&gt; Balaj Mubeen
+&gt; student — DAE in ICT, CTTI Islamabad
+&gt; focus — Python, backend engineering, cybersecurity
+&gt; next  — AI systems: fine-tuning, RAG, personalization</pre>
+        <p>Currently a student, learning in public. Most of what's here is a work in progress by design — the roadmap on the left is real, and so is the pace: fundamentals first, one layer at a time, no shortcuts through the parts that are supposed to be hard.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="about">
-    <div class="section-label">01 — about me</div>
-    <div class="about-inner">
-      <div class="about-photo reveal">
-        <div class="about-photo-corner tl"></div>
-        <div class="about-photo-corner tr"></div>
-        <div class="about-photo-corner bl"></div>
-        <div class="about-photo-corner br"></div>
-        <img src="./me.jpeg" alt="Balaj Mubeen" />
-      </div>
-      <div class="about-text">
-        <h2 class="section-title">Student.<br>Builder.<br>Security-minded.</h2>
-        <p class="about-bio reveal">
-          I'm Balaj — a <strong>DAE in ICT student at CTTI Pakistan</strong> with a sharp focus on cybersecurity,
-          networking, and low-level systems. I care about understanding how things <em>actually</em> work —
-          not just the surface level, but the mechanics underneath.
-        </p>
-        <p class="about-bio reveal reveal-delay-1">
-          I learn by building. From writing Python automation tools to running a personal Linux home lab,
-          every project is a step deeper into the stack. I hold a <strong>Google Cybersecurity Professional Certificate</strong>
-          and an <strong>IBM Linux System Administration</strong> certification, and I'm currently working on
-          projects that merge AI with OS-level control.
-        </p>
-        <div class="certs-grid reveal reveal-delay-2">
-
-          <div class="cert-card">
-            <div class="cert-icon">// CERT</div>
-            <div class="cert-name">Google Cybersecurity Professional</div>
-            <div class="cert-sub">Google · Completed ✓</div>
-            <div class="cert-detail-body">8-course program covering threat analysis, SIEM, incident response, network security, Python & Linux.</div>
-            <span class="cert-link" data-popup="google">View Certificate ↗</span>
-          </div>
-
-          <div class="cert-card">
-            <div class="cert-icon">// CERT</div>
-            <div class="cert-name">Linux System Administration</div>
-            <div class="cert-sub">IBM · Completed ✓</div>
-            <div class="cert-detail-body">IBM Power Systems program covering Linux admin, shell scripting, file systems, user management & networking.</div>
-            <span class="cert-link" data-popup="ibm">View Certificate ↗</span>
-          </div>
-
-          <div class="cert-card">
-            <div class="cert-icon">// EXAM</div>
-            <div class="cert-name">Cisco Network Fundamentals</div>
-            <div class="cert-sub">120 / 150 · Lahore Technical Board</div>
-            <div class="cert-detail-body">Year 1 DAE curriculum. Annual Board Exam by Lahore Technical Board. Covers routing, switching & Cisco IOS.</div>
-            <span class="cert-link no-link">Board Exam · No digital cert</span>
-          </div>
-
-          <div class="cert-card">
-            <div class="cert-icon">// LAB</div>
-            <div class="cert-name">Home Lab</div>
-            <div class="cert-sub">Linux · Networking · Security</div>
-            <div class="cert-detail-body">Self-built Linux server on repurposed hardware. Used for security testing, network monitoring & server admin.</div>
-            <span class="cert-link no-link">Self-Directed · Ongoing</span>
-          </div>
-
-        </div>
-
-        <!-- CERT POPUP -->
-        <div class="cert-popup" id="certPopup">
-          <div class="cert-popup-inner">
-            <button class="cert-popup-close" id="certPopupClose">✕</button>
-            <img src="" alt="Certificate" id="certPopupImg" />
-          </div>
-        </div>
-      </div>
+    <div class="sec-head">
+      <div class="idx mono">02</div>
+      <h2 class="reveal"><span style="color: var(--accent);">/</span>Interest</h2>
+    </div>
+    <div class="about-grid">
+      <p class="reveal">Started the same place a lot of us do — Linux, networking fundamentals, the cybersecurity rabbit hole. Somewhere in there, the part that actually stuck wasn't breaking systems, it was <strong>understanding how they're built</strong>: how components talk to each other, where the boundaries should sit, what breaks first under load.</p>
+      <p class="reveal">That's the pivot in progress now — from a cybersecurity-first identity toward backend, systems, and infrastructure engineering. The security foundation isn't gone, it's just doing what a foundation should: staying underneath, holding everything else up.</p>
+    </div>
+    <div class="lab-line reveal">
+      <span class="k">$</span> uptime — Linux home lab, an old PC repurposed for hands-on networking and security practice. Still running.
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-label">02 — technical skills</div>
-    <h2 class="section-title reveal">What I work with.</h2>
-    <div class="skills-grid">
-      <div class="skill-group reveal">
-        <div class="skill-group-label">// CORE</div>
-        <div class="skill-group-title">Cybersecurity</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Network Security</span>
-          <span class="skill-tag">Threat Analysis</span>
-          <span class="skill-tag">Vulnerability Assessment</span>
-          <span class="skill-tag">SIEM</span>
-          <span class="skill-tag">Incident Response</span>
-        </div>
-      </div>
-      <div class="skill-group reveal reveal-delay-1">
-        <div class="skill-group-label">// NETWORKING</div>
-        <div class="skill-group-title">Networks</div>
-        <div class="skill-tags">
-          <span class="skill-tag">TCP/IP</span>
-          <span class="skill-tag">Cisco IOS</span>
-          <span class="skill-tag">Subnetting</span>
-          <span class="skill-tag">Routing &amp; Switching</span>
-          <span class="skill-tag">Wireshark</span>
-          <span class="skill-tag">DNS / DHCP</span>
-        </div>
-      </div>
-      <div class="skill-group reveal reveal-delay-2">
-        <div class="skill-group-label">// SYSTEMS</div>
-        <div class="skill-group-title">Operating Systems</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Linux</span>
-          <span class="skill-tag">macOS</span>
-          <span class="skill-tag">Bash</span>
-          <span class="skill-tag">Shell Scripting</span>
-          <span class="skill-tag">Virtual Servers</span>
-        </div>
-      </div>
-      <div class="skill-group reveal reveal-delay-1">
-        <div class="skill-group-label">// LANGUAGES</div>
-        <div class="skill-group-title">Programming</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Bash</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">HTML / CSS</span>
-        </div>
-      </div>
-      <div class="skill-group reveal reveal-delay-2">
-        <div class="skill-group-label">// AI / TOOLS</div>
-        <div class="skill-group-title">Tools &amp; Platforms</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Ollama</span>
-          <span class="skill-tag">Git / GitHub</span>
-          <span class="skill-tag">VS Code</span>
-          <span class="skill-tag">Google Cloud</span>
-          <span class="skill-tag">Flask</span>
-        </div>
-      </div>
-      <div class="skill-group reveal reveal-delay-3">
-        <div class="skill-group-label">// HARDWARE</div>
-        <div class="skill-group-title">Hardware &amp; RF</div>
-        <div class="skill-tags">
-          <span class="skill-tag">ESP32</span>
-          <span class="skill-tag">2.4GHz Radio</span>
-          <span class="skill-tag">Bluetooth</span>
-          <span class="skill-tag">Home Lab Server</span>
-        </div>
-      </div>
+  <section>
+    <div class="sec-head">
+      <div class="idx mono">03</div>
+      <h2 class="reveal"><span style="color: var(--accent);">/</span>Credentials</h2>
+    </div>
+    <div class="certs reveal">
+      <span>Google Cybersecurity Professional Certificate</span>
+      <span>IBM Linux System Administration Certificate</span>
+      <span>Cisco Network Fundamentals — 120/150</span>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-label">03 — projects</div>
-    <h2 class="section-title reveal">Things I've built.</h2>
-    <div class="projects-featured">
+  <section id="work">
+    <div class="sec-head">
+      <div class="idx mono">04</div>
+      <h2 class="reveal"><span style="color: var(--accent);">/</span>Work</h2>
+    </div>
+    <div class="projects">
 
-      <a href="https://github.com/Balaj-dev" target="_blank" rel="noopener" class="project-card featured reveal">
+      <div class="card reveal">
         <div>
-          <div class="project-num">// 001 · FEATURED</div>
-          <div class="project-badge">● Active Development</div>
-          <div class="project-title">Friday AI</div>
-          <div class="project-desc">
-            An OS-level AI assistant built with Python and Ollama. Understands natural language and executes
-            real system commands on macOS — from file management to app automation. Named after the AI in Iron Man.
-          </div>
-          <div class="project-stack">
-            <span class="stack-tag">Python</span>
-            <span class="stack-tag">Ollama</span>
-            <span class="stack-tag">macOS</span>
-            <span class="stack-tag">LLM</span>
-            <span class="stack-tag">System Automation</span>
+          <div class="role">Featured</div>
+          <h3><a href="https://github.com/Balaj-dev/crypto-toolkit" target="_blank" rel="noopener">Crypto Toolkit ↗</a></h3>
+        </div>
+        <div>
+          <p>A unified developer toolkit inspired by CyberChef and OpenSSL — encoding, hashing, encryption, key generation, and file-integrity utilities behind one shared processing engine, exposed through both a CLI and a local web interface.</p>
+          <div class="tags">
+            <span>Python</span><span>Flask</span><span>cryptography</span><span>CLI</span><span>Web UI</span>
           </div>
         </div>
-        <div class="project-arrow">↗</div>
-      </a>
+      </div>
 
-      <a href="https://github.com/Balaj-dev/KeyLogger" target="_blank" rel="noopener" class="project-card reveal reveal-delay-1">
-        <div class="project-num">// 002</div>
-        <div class="project-title">KeyLogger</div>
-        <div class="project-desc">
-          An educational cybersecurity project — a background key logger that records all keystrokes.
-          Built to understand how surveillance tools operate at a system level.
+      <div class="card reveal">
+        <div>
+          <div class="role">Project</div>
+          <h3><a href="#" target="_blank" rel="noopener">Password Analyzer ↗</a></h3>
         </div>
-        <div class="project-stack">
-          <span class="stack-tag">Python</span>
-          <span class="stack-tag">System Monitoring</span>
-          <span class="stack-tag">Cybersecurity</span>
-        </div>
-        <div style="margin-top:1.2rem;" class="project-arrow">↗</div>
-      </a>
-
-      <a href="https://github.com/Balaj-dev/Password_analyser" target="_blank" rel="noopener" class="project-card reveal reveal-delay-2">
-        <div class="project-num">// 003</div>
-        <div class="project-title">Password Analyser</div>
-        <div class="project-desc">
-          A local Flask web tool that checks password strength, complexity, and common-password usage.
-          Helps users make smarter security decisions without sending data anywhere.
-        </div>
-        <div class="project-stack">
-          <span class="stack-tag">Python</span>
-          <span class="stack-tag">Flask</span>
-          <span class="stack-tag">Security</span>
-          <span class="stack-tag">Web</span>
-        </div>
-        <div style="margin-top:1.2rem;" class="project-arrow">↗</div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="section-label">04 — experience &amp; education</div>
-    <h2 class="section-title reveal">The journey so far.</h2>
-    <div class="exp-list">
-
-      <div class="exp-item reveal">
-        <div class="exp-year">2024 — PRESENT</div>
-        <div class="exp-content">
-          <div class="exp-title">DAE in Information &amp; Communication Technology</div>
-          <div class="exp-org">CTTI Pakistan · Islamabad</div>
-          <div class="exp-desc">Pursuing a 3-year government diploma specialising in cybersecurity, networking, and systems engineering. Coursework spans TCP/IP, Linux administration, network infrastructure design, and software fundamentals.</div>
-          <div class="exp-status">In Progress</div>
+        <div>
+          <p>A tool for evaluating password strength and exposing common weaknesses — built as a focused, standalone piece of the broader security toolkit.</p>
+          <div class="tags">
+            <span>Python</span><span>Security</span>
+          </div>
         </div>
       </div>
 
-      <div class="exp-item reveal reveal-delay-1">
-        <div class="exp-year">Oct 2025</div>
-        <div class="exp-content">
-          <div class="exp-title">Google Cybersecurity Professional Certificate</div>
-          <div class="exp-org">Google · Coursera</div>
-          <div class="exp-desc">Completed an 8-course industry programme covering threat analysis, SIEM tools, incident response, network security, Python automation, and Linux fundamentals. One of Google's flagship career certificates, recognised globally by employers.</div>
+      <div class="card reveal">
+        <div>
+          <div class="role">Project</div>
+          <h3><a href="#" target="_blank" rel="noopener">Blip Link ↗</a></h3>
         </div>
-      </div>
-
-      <div class="exp-item reveal reveal-delay-2">
-        <div class="exp-year">Oct 2025</div>
-        <div class="exp-content">
-          <div class="exp-title">Linux System Administration with IBM Power Systems</div>
-          <div class="exp-org">IBM · Coursera</div>
-          <div class="exp-desc">Completed IBM's professional course covering Linux system administration on Power Systems — including shell scripting, file system management, user and group administration, process control, and network configuration.</div>
-        </div>
-      </div>
-
-      <div class="exp-item reveal reveal-delay-3">
-        <div class="exp-year">2024</div>
-        <div class="exp-content">
-          <div class="exp-title">Cisco Network Fundamentals</div>
-          <div class="exp-org">Lahore Technical Board · Annual Board Examination</div>
-          <div class="exp-desc">Covered as part of Year 1 of the DAE in ICT curriculum. Achieved a score of 120 out of 150 in the Annual Board Examination conducted by the Lahore Technical Board. Topics included routing, switching, IP addressing, subnetting, and Cisco IOS configuration.</div>
-        </div>
-      </div>
-
-      <div class="exp-item reveal reveal-delay-4">
-        <div class="exp-year">ONGOING</div>
-        <div class="exp-content">
-          <div class="exp-title">Home Lab — Linux Virtual Server</div>
-          <div class="exp-org">Self-Directed · Personal Lab</div>
-          <div class="exp-desc">Running a Linux-based virtual server on repurposed hardware as a hands-on practice environment. Active use cases include network traffic monitoring, vulnerability scanning, firewall configuration, and server administration — real-world skills built outside the classroom.</div>
+        <div>
+          <span class="status-active"><span class="blink"></span>Active development</span>
+          <p style="margin-top:12px;">A desktop AI companion app built around Rocky, an on-screen animated character with click-to-chat and a global hotkey. Currently the vehicle for learning the JavaScript ecosystem — Electron, React, and everything around them.</p>
+          <div class="tags">
+            <span>Electron</span><span>React</span><span>Python</span>
+          </div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
-    <div class="section-label">05 — contact</div>
     <div class="contact-inner">
-      <div>
-        <h2 class="contact-big reveal">Let's<br><span>Connect.</span></h2>
-        <p class="contact-sub reveal reveal-delay-1">
-          Open to part-time cybersecurity work, freelance projects, or a good conversation about systems and security. Feel free to reach out.
-        </p>
-        <a href="mailto:mbalajmubeen@gmail.com" class="contact-email reveal reveal-delay-2">mbalajmubeen@gmail.com</a>
-      </div>
-      <div class="contact-links reveal reveal-delay-1">
-        <a href="https://github.com/Balaj-dev" target="_blank" rel="noopener" class="contact-link">
-          <div class="contact-link-left">
-            <span class="contact-link-platform">// GITHUB</span>
-            <span class="contact-link-handle">Balaj-dev</span>
-          </div>
-          <span class="contact-link-arrow">↗</span>
-        </a>
-        <a href="https://www.linkedin.com/in/malik-balaj-553242216/" target="_blank" rel="noopener" class="contact-link">
-          <div class="contact-link-left">
-            <span class="contact-link-platform">// LINKEDIN</span>
-            <span class="contact-link-handle">Malik Balaj</span>
-          </div>
-          <span class="contact-link-arrow">↗</span>
-        </a>
-        <a href="https://www.instagram.com/balaj_mubeen/" target="_blank" rel="noopener" class="contact-link">
-          <div class="contact-link-left">
-            <span class="contact-link-platform">// INSTAGRAM</span>
-            <span class="contact-link-handle">@balaj_mubeen</span>
-          </div>
-          <span class="contact-link-arrow">↗</span>
-        </a>
+      <h2 class="reveal"><span style="color: var(--accent);">/</span>Let's talk systems.</h2>
+      <div class="contact-links reveal">
+        <a href="https://github.com/Balaj-dev" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/balaj-mubeen-553242216/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-text">© 2025 <span>Balaj Mubeen</span> — All rights reserved.</div>
-    <div class="footer-text">Built with <span>HTML · CSS · JS</span> — Hosted on GitHub Pages</div>
-  </footer>
+</main>
 
+<footer>
+  <div class="wrap">
+    <span>© 2026 Balaj Mubeen</span>
+    <span>built layer by layer</span>
+  </div>
+</footer>
 
+<script src="script.js"></script>
 </body>
 </html>
