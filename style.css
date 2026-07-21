@@ -271,10 +271,14 @@ section{
 }
 .ascii-frame{
   border:1px solid var(--line);
-  background:#f2f1ee;
+  background:var(--bg);
   border-radius:10px;
   padding:14px;
 }
+.ascii-photo.hover{
+  border:10px 0 0 0;
+}
+
 .ascii-photo{
   display:block;
   width:100%;
